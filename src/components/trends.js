@@ -5,31 +5,26 @@ import '../styles/trends.css'
 function Trends() {
 
     const [trends, setTrends] = useState([])
-    const [id, setId] = useState('')
-    const [locations, setLocations] = useState([])
+    const [id, setId] = useState('551801')
 
-    useEffect(() => getTrends(), [id])
-
-    function getTrends() {
+   useEffect(() => {
+    const getTrends = () => {
         axios.get('/trends', {
         params: {
             id,
         },
         }).then(response => {
+            console.log(response.data)
             setTrends(response.data[0].trends)
-            setLocations(response.data[0].locations)
         })
         .catch(error => console.log(error.message))
     }
+    getTrends()
+   }, [id])
 
     function listTrends() {
         return (
             <ol>
-                {locations.map((location, index) => {
-                    return (
-                        <h4 key={index}>Trending hashtags in {location.name}</h4>
-                    )
-                })}
                 {trends.map((trend, index) => {
                     return (
                         <li key={index}>
@@ -50,8 +45,6 @@ function Trends() {
             type='text'
             placeholder='enter'
             onChange={e => setId(e.target.value)}>
-                <option value="" selected disabled hidden>Choose Location</option>
-                <option value='1'>World Wide</option>
                 <option value='551801'>Vienna</option>
                 <option value='906057'>Stockholm</option>
                 <option value='1118370'>Tokyo</option>
@@ -60,6 +53,7 @@ function Trends() {
                 <option value='44418'>London</option>
                 <option value='638242'>Berlin</option>
                 <option value='766273'>Madrid</option>
+                <option value='1'>World Wide</option>
             </select>
         </form>
         <div>{listTrends()}</div>

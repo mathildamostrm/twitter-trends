@@ -1,5 +1,5 @@
 select {
-    font-size: large;
+    font-size: 30px;
     font-family:'Courier New', Courier, monospace; 
     font-weight: bold;
 }
@@ -19,6 +19,7 @@ a {
 ol {
     text-align: center;
     list-style-position: inside;
+    column-count: 4;
 }
 
 span {
