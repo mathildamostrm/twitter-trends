@@ -1,2 +1,1 @@
-# Project ide
-My plan is to work with the Twitter API and analysis Twitter trends, the plan is to build a search tool (similar to the example case but with a twist, I hope this is okay) for different countries and get their specific trends, with trend I mean hashtags, maybe have a filter so you also can see trends in which tweets get most retweets and soo on. I'm still iterating this but I just wanted to confirm that the topic is okay before I continue.
+
