@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const config = require('./config.js')
+const config = require('./config')
 const port = config.port || 5000
 const Twitter = require('twitter')
 

@@ -5,7 +5,8 @@ import '../styles/trends.css'
 function Trends() {
 
     const [trends, setTrends] = useState([])
-    const [id, setId] = useState('1')
+    const [id, setId] = useState('')
+    const [locations, setLocations] = useState([])
 
     useEffect(() => getTrends(), [id])
 
@@ -15,48 +16,53 @@ function Trends() {
             id,
         },
         }).then(response => {
-            console.log(response.data)
             setTrends(response.data[0].trends)
+            setLocations(response.data[0].locations)
         })
         .catch(error => console.log(error.message))
     }
 
     function listTrends() {
         return (
-            <ul>
+            <ol>
+                {locations.map((location, index) => {
+                    return (
+                        <h4 key={index}>Trending hashtags in {location.name}</h4>
+                    )
+                })}
                 {trends.map((trend, index) => {
                     return (
                         <li key={index}>
                             <a href={trend.url}>{trend.name}</a>
                             {trend.tweet_volume && (
-                                <span>{trend.tweet_volume}</span>
+                                <span> {trend.tweet_volume}</span>
                             )}
                         </li>
                     )
                 })}
-            </ul>
+            </ol>
         )
     }
     return (
     <div>
         <form>
             <select
-            className='select'
             type='text'
             placeholder='enter'
             onChange={e => setId(e.target.value)}>
-                <option value='1'>#world wide</option>
-                <option value='551801'>#vienna</option>
-                <option value='906057'>#stockholm</option>
-                <option value='1118370'>#tokyo</option>
-                <option value='615702'>#paris</option>
-                <option value='2514815'>#washington</option>
-                <option value='44418'>#london</option>
-                <option value='638242'>#berlin</option>
-                <option value='766273'>#madrid</option>
+                <option value="" selected disabled hidden>Choose Location</option>
+                <option value='1'>World Wide</option>
+                <option value='551801'>Vienna</option>
+                <option value='906057'>Stockholm</option>
+                <option value='1118370'>Tokyo</option>
+                <option value='615702'>Paris</option>
+                <option value='2514815'>Washington</option>
+                <option value='44418'>London</option>
+                <option value='638242'>Berlin</option>
+                <option value='766273'>Madrid</option>
             </select>
         </form>
-        <div className='list'>{listTrends()}</div>
+        <div>{listTrends()}</div>
     </div>)
 }
 

@@ -1,6 +1,18 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Source Code Pro', monospace;
+    color: darkgray;
+    text-align: center;
+    border: none; 
+}
+
+.header-container {
+    padding-bottom: 30px;
+    display: inline;
+}
+
 .title {
-    font-size: x-large;
-    color:cornflowerblue;
-    font-family:'Courier New', Courier, monospace; 
+    font-size: 50px;
     font-weight: bold;
 }
+

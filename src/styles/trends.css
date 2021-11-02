@@ -1,13 +1,28 @@
-.select {
-    font-size: small;
-    color:cornflowerblue;
+select {
+    font-size: large;
     font-family:'Courier New', Courier, monospace; 
     font-weight: bold;
 }
 
-.list {
-    font-size: small;
-    color:cornflowerblue;
-    font-family:'Courier New', Courier, monospace; 
-    font-weight: bold;
+h4 {
+    font-size: large;
 }
+
+li {
+    padding: .5em;
+}
+
+a {
+    text-decoration: none;
+}
+
+ol {
+    text-align: center;
+    list-style-position: inside;
+}
+
+span {
+    color: black;
+}
+
+
