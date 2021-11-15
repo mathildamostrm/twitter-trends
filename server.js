@@ -23,6 +23,21 @@ const client = new Twitter({
     }
   })
 
+  app.get('/tweets', async(req, res, next) => {
+    try {
+      const q = req.query.q
+      //const result_type = req.query.result_type
+      const tweets = await client.get('search/tweets', {
+        q: q,
+        result_type: 'popular',
+      })
+      res.send(tweets)
+      console.log(tweets)
+    } catch (error) {
+      next(error)
+    }
+  })
+
  app.get('/', (req, res) => { 
    res.send('hello twitter')
  })

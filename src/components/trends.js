@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import '../styles/trends.css'
+import '../styles/components.css'
 
 function Trends() {
 
@@ -41,9 +41,8 @@ function Trends() {
     return (
     <div>
         <form>
-            <select
+            <select /*TODO: Add more options*/
             type='text'
-            placeholder='enter'
             onChange={e => setId(e.target.value)}>
                 <option value='551801'>Vienna</option>
                 <option value='906057'>Stockholm</option>

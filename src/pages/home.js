@@ -1,4 +1,5 @@
 import Trends from '../components/trends'
+import Tweets from '../components/tweets'
 import '../styles/home.css'
 import logo from './geotarget-tweets.png'
 
@@ -10,6 +11,7 @@ function Home() {
         <img className='image' src={logo} alt='twitter logo' />
         </div>
         <Trends />
+        <Tweets />
         </>
     )
 }
